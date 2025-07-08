@@ -173,6 +173,11 @@ export default function App() {
     }, 0);
   };
 
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setLetters(e.target.value);
+    setResults([]); // 清空结果
+  };
+
   return (
     <div className='app'>
       <h1>字母组合工具</h1>
@@ -180,7 +185,7 @@ export default function App() {
         <input
           type='text'
           value={letters}
-          onChange={(e) => setLetters(e.target.value)}
+          onChange={handleInputChange} // 使用自定义的输入处理函数
           placeholder='请输入字母'
           className='letter-input'
         />
